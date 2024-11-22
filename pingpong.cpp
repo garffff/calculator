@@ -411,15 +411,8 @@ int main()
     string ogs;
     getline(cin, ogs);
     probel(ogs);
-    cout << ogs << endl;
-    if(proverka(ogs) == false)
-    {
-        cout << "INVALID SYNTAX";
-        return 0;
-    }
+    proverka(ogs);
     vector<string> fins = vecizstr(ogs);
-    cout << "original vector:" << endl;
-    for(int i = 0; i < fins.size(); ++i) cout << fins[i] << ", ";
     if(istherex(fins))
     {
         double x;
@@ -431,12 +424,7 @@ int main()
         }
     }
     skob(fins);
-    cout << "without skobochek:" << endl;
-    for(int i = 0; i < fins.size(); ++i)
-    {
-        cout << fins[i] << ", ";
-    }
     uprosh(fins);
-    cout << endl << "final answer" << endl << fins[0];
+    cout << "final answer" << endl << fins[0];
     return 0;
 }
