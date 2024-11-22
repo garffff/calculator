@@ -270,7 +270,7 @@ bool proverka(string ogs) //проверяет корректность введ
                 exit(0);
             }
         }
-        if(pc > lc)
+        if(pc > lc or (i + 1 == ogs.size() and lc != pc))
         {
             cout << "WRONG BRACKET PLACING" << endl;
             exit(0);
