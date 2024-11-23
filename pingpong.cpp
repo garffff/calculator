@@ -154,7 +154,7 @@ bool proverka(string ogs) //проверяет корректность введ
                 cout << "WRONG SYMBOL AFTER NUMBER" << ogs[i + j - 1] << endl;
                 exit(0);
             }
-            i +=j;
+            i +=j - 1;
         }
         else if(ogs[i] == '(')
         {
@@ -168,17 +168,21 @@ bool proverka(string ogs) //проверяет корректность введ
                 cout << "WRONG SYMBOL AFTER '('" << endl;
                 exit(0);
             }
-            ++lc;
+            lc++;
+            cout << "lc:" << lc << endl;
         }
         else if(ogs[i] == ')')
         {
-            if(i + 1 == ogs.size()) return 1;
-            else if(not isznak(ogs[i + 1]) or ogs[i + 1] == '(')
+            if(i + 1 != ogs.size())
             {
-                cout << "WRONG SYMBOL AFTER ')'" << endl;
-                exit(0);
+                if(not isznak(ogs[i + 1]) or ogs[i + 1] == '(')
+                {
+                    cout << "WRONG SYMBOL AFTER ')'" << endl;
+                    exit(0);
+                }
             }
-            ++pc;
+            pc++;
+            cout << pc << endl;
         }
         else if(isznak(ogs[i]) and ogs[i] != '(' and ogs[i] != ')' and isznak(ogs[i + 1]) and ogs[i + 1] != '(')
         {
@@ -264,15 +268,20 @@ bool proverka(string ogs) //проверяет корректность введ
         else if(ogs[i] == 'x')
         {
             if(i + 1 == ogs.size()) return 1;
-            if(not(isznak(ogs[i + 1]) and ogs[i + 1] != ')'))
+            if(not(isznak(ogs[i + 1]) and ogs[i + 1] != '('))
             {
                 cout << "WRONG SYMBOL AFTER 'x'" << endl;
                 exit(0);
             }
         }
-        if(pc > lc or (i + 1 == ogs.size() and lc != pc))
+        if(pc > lc)
         {
             cout << "WRONG BRACKET PLACING" << endl;
+            exit(0);
+        }
+        if(i + 1 == ogs.size() and lc != pc)
+        {
+            cout << "AMOUNT OF LEFT AND RIGHT BRACKETS HAS TO BE EQUAL" << endl;
             exit(0);
         }
     }
@@ -416,7 +425,7 @@ int main()
     if(istherex(fins))
     {
         double x;
-        cout << endl << "Insert x:" << endl;
+        cout << "Insert x:" << endl;
         cin >> x;
         for(int i = 0; i < fins.size(); ++i)
         {
