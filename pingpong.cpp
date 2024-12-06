@@ -163,13 +163,12 @@ bool proverka(string ogs) //проверяет корректность введ
                 cout << "SYMBOL '(' CAN NOT BE THE LAST ONE" << endl;
                 exit(0);
             }
-            else if(isznak(ogs[i + 1]) and ogs[i + 1] != '-')
+            else if(isznak(ogs[i + 1]) and ogs[i + 1] != '-' and ogs[i + 1] != '(')
             {
                 cout << "WRONG SYMBOL AFTER '('" << endl;
                 exit(0);
             }
             lc++;
-            cout << "lc:" << lc << endl;
         }
         else if(ogs[i] == ')')
         {
@@ -182,7 +181,6 @@ bool proverka(string ogs) //проверяет корректность введ
                 }
             }
             pc++;
-            cout << pc << endl;
         }
         else if(isznak(ogs[i]) and ogs[i] != '(' and ogs[i] != ')' and isznak(ogs[i + 1]) and ogs[i + 1] != '(')
         {
