@@ -88,10 +88,10 @@ vector<string> vecizstr(string ogs) //перевод вводимого выра
 double perevod(string a) //переводит строку в число, чтобы с ним возомжно было проводить мат операции
 {
     double k = 1;
-    if(a[0] == '-')
+    while(a[0] == '-')
     {
         a.erase(a.begin());
-        k = -1;
+        k *= -1;
     }
     double c = 0;
     int f = min(a.find('.'), a.find(','));
