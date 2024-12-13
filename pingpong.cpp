@@ -118,7 +118,11 @@ double perevod(string a) //переводит строку в число, что
 
 void probel(string &ogs) //удаляет пробелы из выражения
 {
-    for(int i = 0; i < ogs.size(); ++i) if(ogs[i] == ' ') ogs.erase(i, 1);
+    for(int i = 0; i < ogs.size(); ++i) if(ogs[i] == ' ')
+    {
+        ogs.erase(i, 1);
+        --i;
+    }
 }
 
 bool proverka(string ogs) //проверяет корректность введенного выражения
@@ -127,10 +131,10 @@ bool proverka(string ogs) //проверяет корректность введ
     for(int i = 0; i < ogs.size(); ++i)
     {
         if(not (isc(ogs[i]) or isznak(ogs[i]) or ogs[i] == 'c' or ogs[i] == 't' or ogs[i] == 's' or ogs[i] == 'e' or ogs[i] == 'x'))
-            {
-                cout << "EXTRA SYMBOLS" << endl;
-                exit(0);
-            }
+        {
+            cout << "EXTRA SYMBOLS" << endl;
+            exit(0);
+        }
         else if(isc(ogs[i]))
         {
             j = 0;
@@ -397,12 +401,12 @@ void skob(vector<string> &fins)
     vector<string> buf;
     while(finder(fins, "(") < fins.size())
     {
-        for(int i = finder(fins, ")") - 2; i >= 0; i--)
+        for(int i = finder(fins, ")") - 1; i >= 0; i--)
         {
             if(fins[i] == "(")
             {
                 buf.clear();
-                for(int k = i + 1; k <= finder(fins, ")") - 1; ++k)
+                for(int k = i + 1; k < finder(fins, ")"); ++k)
                 {
                     buf.push_back(fins[k]);
                 }
@@ -432,6 +436,6 @@ int main()
     }
     skob(fins);
     uprosh(fins);
-    cout << "final answer" << endl << fins[0];
+    cout << "final answer" << endl << perevod(fins[0]);
     return 0;
 }
