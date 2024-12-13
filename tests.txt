@@ -1,0 +1,36 @@
+(9 + 6 - 5) / (8 + 1 * 2) + 7
+final answer
+8
+
+cos(x-5)*10/(2*x-5)
+Insert x:
+5
+final answer
+2
+
+6,52-4,83
+final answer
+1.69
+
+((((-5))))
+final answer
+-5
+
+exp(sin(cosx))
+Insert x:
+1.57
+final answer
+1.0008
+
+43 / (22 - 11 * 2 * cos0)
+ZeroDivisionErr
+
+(cos(20 + 5) + ((65)
+AMOUNT OF LEFT AND RIGHT BRACKETS HAS TO BE EQUAL
+
+157 + cos-2
+WRONG SYMBOL AFTER 's'
+
+157+cos(-2)
+final answer
+156.584
